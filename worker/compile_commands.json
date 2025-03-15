@@ -1,0 +1,254 @@
+[
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/array_ref.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/array_ref.p/array_ref.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/array_ref.p/array_ref.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/array_ref.p/array_ref.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/array_ref.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/array_ref.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/array_ref.p/array_ref.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/boost_fusion.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/boost_fusion.p/boost_fusion.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/boost_fusion.p/boost_fusion.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/boost_fusion.p/boost_fusion.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/boost_fusion.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/boost_fusion.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/boost_fusion.p/boost_fusion.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/boost_optional.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/boost_optional.p/boost_optional.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/boost_optional.p/boost_optional.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/boost_optional.p/boost_optional.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/boost_optional.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/boost_optional.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/boost_optional.p/boost_optional.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/boost_string_ref.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/boost_string_ref.p/boost_string_ref.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/boost_string_ref.p/boost_string_ref.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/boost_string_ref.p/boost_string_ref.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/boost_string_ref.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/boost_string_ref.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/boost_string_ref.p/boost_string_ref.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/boost_string_view.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/boost_string_view.p/boost_string_view.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/boost_string_view.p/boost_string_view.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/boost_string_view.p/boost_string_view.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/boost_string_view.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/boost_string_view.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/boost_string_view.p/boost_string_view.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/boost_variant.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/boost_variant.p/boost_variant.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/boost_variant.p/boost_variant.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/boost_variant.p/boost_variant.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/boost_variant.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/boost_variant.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/boost_variant.p/boost_variant.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/buffer.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/buffer.p/buffer.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/buffer.p/buffer.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/buffer.p/buffer.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/buffer.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/buffer.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/buffer.p/buffer.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/carray.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/carray.p/carray.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/carray.p/carray.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/carray.p/carray.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/carray.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/carray.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/carray.p/carray.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/cases.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/cases.p/cases.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/cases.p/cases.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/cases.p/cases.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/cases.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/cases.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/cases.p/cases.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/convert.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/convert.p/convert.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/convert.p/convert.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/convert.p/convert.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/convert.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/convert.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/convert.p/convert.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/fixint.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/fixint.p/fixint.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/fixint.p/fixint.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/fixint.p/fixint.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/fixint.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/fixint.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/fixint.p/fixint.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.p/inc_adaptor_define.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.p/inc_adaptor_define.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.p/inc_adaptor_define.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/inc_adaptor_define.p/inc_adaptor_define.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.p/iterator_cpp11.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.p/iterator_cpp11.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.p/iterator_cpp11.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/iterator_cpp11.p/iterator_cpp11.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/json.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/json.p/json.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/json.p/json.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/json.p/json.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/json.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/json.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/json.p/json.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/limit.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/limit.p/limit.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/limit.p/limit.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/limit.p/limit.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/limit.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/limit.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/limit.p/limit.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_basic.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_basic.p/msgpack_basic.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_basic.p/msgpack_basic.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_basic.p/msgpack_basic.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_basic.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_basic.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_basic.p/msgpack_basic.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_container.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_container.p/msgpack_container.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_container.p/msgpack_container.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_container.p/msgpack_container.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_container.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_container.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_container.p/msgpack_container.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.p/msgpack_cpp11.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.p/msgpack_cpp11.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.p/msgpack_cpp11.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp11.p/msgpack_cpp11.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.p/msgpack_cpp17.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.p/msgpack_cpp17.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.p/msgpack_cpp17.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp17.p/msgpack_cpp17.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.p/msgpack_cpp20.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.p/msgpack_cpp20.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.p/msgpack_cpp20.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_cpp20.p/msgpack_cpp20.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_stream.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_stream.p/msgpack_stream.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_stream.p/msgpack_stream.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_stream.p/msgpack_stream.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_stream.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_stream.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_stream.p/msgpack_stream.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.p/msgpack_tuple.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.p/msgpack_tuple.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.p/msgpack_tuple.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_tuple.p/msgpack_tuple.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_vref.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_vref.p/msgpack_vref.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_vref.p/msgpack_vref.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_vref.p/msgpack_vref.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_vref.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_vref.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_vref.p/msgpack_vref.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.p/msgpack_x3_parse.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.p/msgpack_x3_parse.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.p/msgpack_x3_parse.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/msgpack_x3_parse.p/msgpack_x3_parse.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/object.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/object.p/object.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/object.p/object.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/object.p/object.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/object.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/object.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/object.p/object.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/object_with_zone.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/object_with_zone.p/object_with_zone.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/object_with_zone.p/object_with_zone.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/object_with_zone.p/object_with_zone.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/object_with_zone.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/object_with_zone.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/object_with_zone.p/object_with_zone.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/pack_unpack.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/pack_unpack.p/pack_unpack.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/pack_unpack.p/pack_unpack.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/pack_unpack.p/pack_unpack.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/pack_unpack.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/pack_unpack.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/pack_unpack.p/pack_unpack.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/raw.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/raw.p/raw.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/raw.p/raw.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/raw.p/raw.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/raw.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/raw.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/raw.p/raw.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/reference.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/reference.p/reference.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/reference.p/reference.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/reference.p/reference.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/reference.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/reference.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/reference.p/reference.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/reference_cpp11.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/reference_cpp11.p/reference_cpp11.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/reference_cpp11.p/reference_cpp11.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/reference_cpp11.p/reference_cpp11.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/reference_cpp11.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/reference_cpp11.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/reference_cpp11.p/reference_cpp11.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.p/reference_wrapper_cpp11.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.p/reference_wrapper_cpp11.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.p/reference_wrapper_cpp11.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/reference_wrapper_cpp11.p/reference_wrapper_cpp11.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.p/shared_ptr_cpp11.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.p/shared_ptr_cpp11.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.p/shared_ptr_cpp11.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/shared_ptr_cpp11.p/shared_ptr_cpp11.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/size_equal_only.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/size_equal_only.p/size_equal_only.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/size_equal_only.p/size_equal_only.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/size_equal_only.p/size_equal_only.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/size_equal_only.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/size_equal_only.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/size_equal_only.p/size_equal_only.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/streaming.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/streaming.p/streaming.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/streaming.p/streaming.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/streaming.p/streaming.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/streaming.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/streaming.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/streaming.p/streaming.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.p/unique_ptr_cpp11.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.p/unique_ptr_cpp11.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.p/unique_ptr_cpp11.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/unique_ptr_cpp11.p/unique_ptr_cpp11.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/user_class.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/user_class.p/user_class.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/user_class.p/user_class.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/user_class.p/user_class.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/user_class.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/user_class.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/user_class.p/user_class.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/version.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/version.p/version.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/version.p/version.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/version.p/version.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/version.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/version.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/version.p/version.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/visitor.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/visitor.p/visitor.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/visitor.p/visitor.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/visitor.p/visitor.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/visitor.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/visitor.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/visitor.p/visitor.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/zone.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_TEST_DYN_LINK=1 -DBOOST_SYSTEM_DYN_LINK=1 -pthread -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/zone.p/zone.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/zone.p/zone.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/zone.p/zone.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/zone.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/zone.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/zone.p/zone.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/multi_file.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file1.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file1.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file1.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/multi_file1.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/multi_file1.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file1.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isubprojects/msgpack-cxx-7.0.0/test/multi_file.p -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -MD -MQ subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file2.cpp.o -MF subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file2.cpp.o.d -o subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file2.cpp.o -c ../subprojects/msgpack-cxx-7.0.0/test/multi_file2.cpp",
+    "file": "../subprojects/msgpack-cxx-7.0.0/test/multi_file2.cpp",
+    "output": "subprojects/msgpack-cxx-7.0.0/test/multi_file.p/multi_file2.cpp.o"
+  },
+  {
+    "directory": "/home/disablegraphics/Projects/C++Projs/Distributed/sdistrib/worker/builddir",
+    "command": "c++ -Isdistrib-server.p -I. -I.. -Isubprojects/cppzmq-4.10.0 -I../subprojects/cppzmq-4.10.0 -I../subprojects/msgpack-cxx-7.0.0/include -I/usr/include/p11-kit-1 -I/usr/include/pgm-5.3 -I/usr/include -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -DBOOST_ALL_NO_LIB -DMSGPACK_USE_STD_VARIANT_ADAPTOR -DZMQ_BUILD_DRAFT_API=1 -MD -MQ sdistrib-server.p/src_main.cpp.o -MF sdistrib-server.p/src_main.cpp.o.d -o sdistrib-server.p/src_main.cpp.o -c ../src/main.cpp",
+    "file": "../src/main.cpp",
+    "output": "sdistrib-server.p/src_main.cpp.o"
+  }
+]

@@ -1,0 +1,4 @@
+worker/.cache
+manager/target
+.vscode/settings.json
+worker/subprojects/*/
