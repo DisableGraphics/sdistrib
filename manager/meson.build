@@ -1,6 +1,7 @@
-project('sdistrib-manager', 'cpp', version: '0.0.1', default_options : ['cpp_std=c++17'])
+project('sdistrib-manager', 'cpp', version: '0.0.1', default_options : ['cpp_std=c++20'])
 
 sources = [
+	'src/main.cpp',
 	'src/manager.cpp'
 ]
 
