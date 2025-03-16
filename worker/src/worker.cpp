@@ -32,7 +32,6 @@ void Worker::start() {
 
 	while (running) {
 		zmq::message_t message;
-		sem.acquire();
 		if (socket.recv(&message)) {
 			msgpack::object_handle oh = msgpack::unpack(static_cast<char*>(message.data()), message.size());
 			Message msg;
@@ -42,7 +41,6 @@ void Worker::start() {
 				process_job(msg);
 			}
 		}
-		sem.release();
 	}
 }
 void Worker::stop() {
@@ -52,11 +50,9 @@ void Worker::stop() {
 void Worker::send_heartbeat() {
 	static int hb = 0;
 	while (running) {
-		sem.acquire();
 		std::this_thread::sleep_for(std::chrono::seconds(HEARTBEAT_INTERVAL));
 		send_message({MessageType::HEARTBEAT});
 		std::cout << "Heartbeat! " << hb++ << std::endl;
-		sem.release();
 	}
 }
 
