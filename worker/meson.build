@@ -1,10 +1,11 @@
-project('sdistrib-server', 'cpp', version: '0.0.1', default_options : ['cpp_std=c++17'])
+project('sdistrib-worker', 'cpp', version: '0.0.1', default_options : ['cpp_std=c++17'])
 
 sources = [
-	'src/main.cpp'
+	'src/worker.cpp'
 ]
 
 zmqdep = dependency('cppzmq')
 msgpackdep = dependency('msgpack-cxx')
+inc_dir = include_directories('../common')
 
-executable('sdistrib-server', sources, dependencies : [zmqdep, msgpackdep])
+executable('sdistrib-worker', sources, dependencies : [zmqdep, msgpackdep], include_directories : inc_dir)

@@ -1,4 +1,8 @@
 worker/.cache
-manager/target
+manager/builddir
+worker/builddir
 .vscode/settings.json
 worker/subprojects/*/
+manager/subprojects/*/
+*.json
+.cache

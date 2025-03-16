@@ -4,6 +4,7 @@
 #include <chrono>
 #include <zmq.hpp>
 #include <msgpack.hpp>
+#include <job.hpp>
 
 // -- CONFIGURATION --
 const std::string MANAGER_ADDR = "tcp://localhost:5555";  // Change as needed
@@ -47,13 +48,37 @@ namespace msgpack {
 }  // MSGPACK_API_VERSION_NAMESPACE
 }  // namespace msgpack
 
-struct Job {
-	int id;
-    std::string prompt;
-    int steps;
-    std::string scheduler;
-    MSGPACK_DEFINE(id, prompt, steps, scheduler);
-};
+// Special case for std::monostate (Heartbeat) during serialization
+namespace msgpack {
+	MSGPACK_API_VERSION_NAMESPACE(MSGPACK_DEFAULT_API_NS) {
+		namespace adaptor {
+	
+			template <>
+			struct convert<std::monostate> {
+				msgpack::object const& operator()(msgpack::object const& o, std::monostate& v) const {
+					return o;
+				}
+			};
+			
+			template <>
+			struct pack<std::monostate> {
+				template <typename Stream>
+				packer<Stream>& operator()(msgpack::packer<Stream>& o, std::monostate const& v) const {
+					o.pack_nil();
+					return o;
+				}
+			};
+			
+			template <>
+			struct object_with_zone<std::monostate> {
+				void operator()(msgpack::object::with_zone& o, std::monostate const& v) const {
+					o.type = msgpack::type::NIL;
+				}
+			};
+			
+		}  // namespace adaptor
+	}
+}
 
 struct Image {
     std::vector<uint8_t> image_data;  // Binary image data
@@ -61,10 +86,22 @@ struct Image {
 };
 
 struct WorkerInfo {
-	std::string identity;
 	int port;
 	int compute;
-	MSGPACK_DEFINE(identity, port, compute);
+	MSGPACK_DEFINE(port, compute);
+};
+
+using MessageVariant = std::variant<
+	WorkerInfo,
+	Job,
+	Image,
+	std::monostate
+>;
+
+struct Message {
+	MessageType type;
+	MessageVariant variant;
+	MSGPACK_DEFINE(type, variant);
 };
 
 // -- WORKER CLASS --
@@ -73,10 +110,13 @@ public:
     Worker(zmq::context_t& ctx) : socket(ctx, ZMQ_DEALER), running(true) {
         socket.setsockopt(ZMQ_IDENTITY, identity.c_str(), identity.length());
 		socket.bind("tcp://*:0");
-		std::string endpoint = socket.getsockopt<std::string>(ZMQ_LAST_ENDPOINT);
+		char endpoint_buffer[256];
+		size_t endpoint_size = sizeof(endpoint_buffer);
+        socket.getsockopt(ZMQ_LAST_ENDPOINT, endpoint_buffer, &endpoint_size);
+		std::string endpoint = endpoint_buffer;
         size_t last_colon = endpoint.rfind(":");
         port = std::stoi(endpoint.substr(last_colon + 1));
-
+		std::cout << "Bound to " << endpoint << std::endl;
         socket.connect(MANAGER_ADDR);
     }
 
@@ -85,7 +125,7 @@ public:
         std::thread(&Worker::send_heartbeat, this).detach();
 		
         // Register worker
-        send_message(MessageType::REGISTER_WORKER, WorkerInfo{identity, port, 10000});
+        send_message({MessageType::REGISTER_WORKER, WorkerInfo{port, 10000}});
 
         while (running) {
             zmq::message_t message;
@@ -110,7 +150,7 @@ private:
     void send_heartbeat() {
         while (running) {
             std::this_thread::sleep_for(std::chrono::seconds(HEARTBEAT_INTERVAL));
-            send_message(MessageType::HEARTBEAT);
+            send_message({MessageType::HEARTBEAT});
         }
     }
 
@@ -124,27 +164,19 @@ private:
 
         // Fake image data
         Image img = {std::vector<uint8_t>(1024, 255)};
-        send_message(MessageType::JOB_RESULT, img);
+        send_message(Message{MessageType::JOB_RESULT, img});
     }
 
-    void send_message(MessageType type) {
+    void send_message(Message data) {
         msgpack::sbuffer buffer;
         msgpack::packer<msgpack::sbuffer> packer(buffer);
-        packer.pack(type);
-        socket.send(zmq::message_t(buffer.data(), buffer.size()), zmq::send_flags::none);
-    }
-
-    template<typename T>
-    void send_message(MessageType type, T data) {
-        msgpack::sbuffer buffer;
-        msgpack::packer<msgpack::sbuffer> packer(buffer);
-        packer.pack(type);
         packer.pack(data);
         socket.send(zmq::message_t(buffer.data(), buffer.size()), zmq::send_flags::none);
     }
 };
 
 int main() {
+	std::srand(std::time(nullptr));
     zmq::context_t context;
     Worker worker(context);
     worker.start();
