@@ -21,7 +21,7 @@ void worker_thread(int id) {
         //  Get request, send reply
         Job request = s_recv_msgp<Job>(worker);
 		
-        std::cout << "Worker " << id << ": " << request.prompt << " " << request.id << " " << request.steps << " " << request.scheduler << std::endl;
+        std::cout << "Worker " << id << ": " << request.id << std::endl;
 		std::cout << "Worker " << id << " finished" << std::endl;
 
 		Image response{request.id, std::vector<uint8_t>(1024*1024, 0)};
