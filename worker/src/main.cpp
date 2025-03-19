@@ -19,19 +19,17 @@ void worker_thread(int id) {
         std::string address = s_recv(worker);
 		receive_empty_message(worker);
         //  Get request, send reply
-        std::string request = s_recv(worker);
-		std::string number = request.substr(request.find(' ') + 1);
-        std::cout << "Worker " << id << ": " << request << std::endl;
-		int sleep_time = rand() % 12;
-		std::cout << "Worker " << id << " sleeping for " << sleep_time << " seconds" << std::endl;
-		sleep(sleep_time);
+        Job request = s_recv_msgp<Job>(worker);
+		
+        std::cout << "Worker " << id << ": " << request.prompt << " " << request.id << " " << request.steps << " " << request.scheduler << std::endl;
 		std::cout << "Worker " << id << " finished" << std::endl;
+
+		Image response{request.id, std::vector<uint8_t>(1024*1024, 0)};
 
         s_sendmore(worker, address);
         s_sendmore(worker, std::string(""));
-        s_send(worker, std::string("OK " + number));
+        s_send_msgp(worker, response);
     }
-    return;
 }
 
 int main() {

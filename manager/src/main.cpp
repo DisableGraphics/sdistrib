@@ -6,21 +6,6 @@
 #include <queue>
 #include <common.hpp>
 
-void client_thread(int id) {
-    zmq::context_t context(1);
-    zmq::socket_t client(context, ZMQ_REQ);
-
-    s_set_id(client); // Set a printable identity
-    client.connect("tcp://localhost:" + jobport);
-
-    //  Send request, get reply
-    s_send(client, std::string("HELLO " + std::to_string(id)));
-    std::string reply = s_recv(client);
-    std::cout << "Client: " << reply << std::endl;
-    return;
-}
-
-
 int main(int argc, char *argv[])
 {
     //  Prepare our context and sockets
@@ -30,12 +15,6 @@ int main(int argc, char *argv[])
 
     frontend.bind("tcp://*:" + jobport);
     backend.bind("tcp://*:" + respport);
-
-    int client_nbr = 0;
-    for (; client_nbr < 10; client_nbr++) {
-        std::thread t(client_thread, client_nbr);
-		t.detach();
-    }
 
     //  Logic of LRU loop
     //  - Poll backend always, frontend only if 1+ worker ready
@@ -75,9 +54,6 @@ int main(int argc, char *argv[])
                 s_sendmore(frontend, client_addr);
                 s_sendmore(frontend, std::string(""));
                 s_send(frontend, reply);
-
-                if (--client_nbr == 0)
-                    break;
             }
         }
         if(items[1].revents & ZMQ_POLLIN) {
@@ -90,6 +66,8 @@ int main(int argc, char *argv[])
 
             std::string worker_addr = worker_queue.front();//worker_queue [0];
             worker_queue.pop();
+
+			std::cout << client_addr << " -> " << worker_addr << std::endl;
 
             s_sendmore(backend, worker_addr);
             s_sendmore(backend, std::string(""));

@@ -6,3 +6,4 @@ worker/subprojects/*/
 manager/subprojects/*/
 *.json
 .cache
+client/subprojects/*/
