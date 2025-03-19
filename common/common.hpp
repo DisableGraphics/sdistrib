@@ -45,53 +45,68 @@ T s_recv_msgp (zmq::socket_t & socket, int flags = 0) {
 
 struct Job {
 	int id;
-	// Parameters for the sd_model_ctx
-	std::string model_path;
-	std::string clip_l_path;
-	std::string clip_g_path;
-	std::string t5xxl_path;
-	std::string diffusion_model_path;
-	std::string vae_path;
-	std::string taesd_path;
-	std::string control_net_path_c_str;
-	std::string lora_model_dir;
-	std::string embed_dir_c_str;
-	std::string stacked_id_embed_dir_c_str;
-	bool vae_decode_only;
-	bool vae_tiling;
-	bool free_params_immediately;
-	int n_threads;
-	enum sd_type_t wtype;
-	enum rng_type_t rng_type;
-	enum schedule_t s;
-	bool keep_clip_on_cpu;
-	bool keep_control_net_cpu;
-	bool keep_vae_on_cpu;
-	bool diffusion_flash_attn;
-	// Parameters for txt2img
-	std::string prompt;
-	std::string negative_prompt;
-	int clip_skip;
-	float cfg_scale;
-	float guidance;
-	float eta;
-	int width;
-	int height;
-	enum sample_method_t sample_method;
-	int sample_steps;
-	int64_t seed;
-	int batch_count;
-	float control_strength;
-	float style_strength;
-	bool normalize_input;
-	std::string input_id_images_path;
-	int skip_layers;
-	size_t skip_layers_count;
-	float slg_scale;
-	float skip_layer_start;
-	float skip_layer_end;
+    int n_threads = -1;
+    std::string model_path;
+    std::string clip_l_path;
+    std::string clip_g_path;
+    std::string t5xxl_path;
+    std::string diffusion_model_path;
+    std::string vae_path;
+    std::string taesd_path;
+    std::string esrgan_path;
+    std::string controlnet_path;
+    std::string embeddings_path;
+    std::string stacked_id_embeddings_path;
+    std::string input_id_images_path;
+    sd_type_t wtype = SD_TYPE_COUNT;
+    std::string lora_model_dir;
+    std::string output_path = "output.png";
+    std::string input_path;
+    std::string mask_path;
+    std::string control_image_path;
 
-	MSGPACK_DEFINE(id,
+    std::string prompt;
+    std::string negative_prompt;
+    float min_cfg     = 1.0f;
+    float cfg_scale   = 7.0f;
+    float guidance    = 3.5f;
+    float eta         = 0.f;
+    float style_ratio = 20.f;
+    int clip_skip     = -1;  // <= 0 represents unspecified
+    int width         = 512;
+    int height        = 512;
+    int batch_count   = 1;
+
+    int video_frames         = 6;
+    int motion_bucket_id     = 127;
+    int fps                  = 6;
+    float augmentation_level = 0.f;
+
+    sample_method_t sample_method = EULER_A;
+    schedule_t schedule           = DEFAULT;
+    int sample_steps              = 20;
+    float strength                = 0.75f;
+    float control_strength        = 0.9f;
+    rng_type_t rng_type           = CUDA_RNG;
+    int64_t seed                  = 42;
+    bool verbose                  = false;
+    bool vae_tiling               = false;
+    bool control_net_cpu          = false;
+    bool normalize_input          = false;
+    bool clip_on_cpu              = false;
+    bool vae_on_cpu               = false;
+    bool diffusion_flash_attn     = false;
+    bool canny_preprocess         = false;
+    bool color                    = false;
+    int upscale_repeats           = 1;
+
+    std::vector<int> skip_layers = {7, 8, 9};
+    float slg_scale              = 0.f;
+    float skip_layer_start       = 0.01f;
+    float skip_layer_end         = 0.2f;
+	MSGPACK_DEFINE(
+		id,
+		n_threads,
 		model_path,
 		clip_l_path,
 		clip_g_path,
@@ -99,39 +114,50 @@ struct Job {
 		diffusion_model_path,
 		vae_path,
 		taesd_path,
-		control_net_path_c_str,
-		lora_model_dir,
-		embed_dir_c_str,
-		stacked_id_embed_dir_c_str,
-		vae_decode_only,
-		vae_tiling,
-		free_params_immediately,
-		n_threads,
+		esrgan_path,
+		controlnet_path,
+		embeddings_path,
+		stacked_id_embeddings_path,
+		input_id_images_path,
 		wtype,
-		rng_type,
-		s,
-		keep_clip_on_cpu,
-		keep_control_net_cpu,
-		keep_vae_on_cpu,
-		diffusion_flash_attn,
+		lora_model_dir,
+		output_path,
+		input_path,
+		mask_path,
+		controlnet_path,
 		prompt,
 		negative_prompt,
-		clip_skip,
+		min_cfg,
 		cfg_scale,
 		guidance,
 		eta,
+		style_ratio,
+		clip_skip,
 		width,
 		height,
-		sample_method,
-		sample_steps,
-		seed,
 		batch_count,
+		video_frames,
+		motion_bucket_id,
+		fps,
+		augmentation_level,
+		sample_method,
+		schedule,
+		sample_steps,
+		strength,
 		control_strength,
-		style_strength,
+		rng_type,
+		seed,
+		verbose,
+		vae_tiling,
+		control_net_cpu,
 		normalize_input,
-		input_id_images_path,
+		clip_on_cpu,
+		vae_on_cpu,
+		diffusion_flash_attn,
+		canny_preprocess,
+		color,
+		upscale_repeats,
 		skip_layers,
-		skip_layers_count,
 		slg_scale,
 		skip_layer_start,
 		skip_layer_end
