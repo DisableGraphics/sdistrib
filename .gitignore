@@ -7,3 +7,4 @@ manager/subprojects/*/
 *.json
 .cache
 client/subprojects/*/
+!worker/subprojects/stable-diffusion.cpp
