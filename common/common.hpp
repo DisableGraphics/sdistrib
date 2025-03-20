@@ -104,6 +104,35 @@ struct Job {
     float slg_scale              = 0.f;
     float skip_layer_start       = 0.01f;
     float skip_layer_end         = 0.2f;
+
+	bool equals_for_ctx(const Job& other) {
+		return model_path == other.model_path &&
+			clip_l_path == other.clip_l_path &&
+			clip_g_path == other.clip_g_path &&
+			t5xxl_path == other.t5xxl_path &&
+			diffusion_model_path == other.diffusion_model_path &&
+			vae_path == other.vae_path &&
+			taesd_path == other.taesd_path &&
+			esrgan_path == other.esrgan_path &&
+			controlnet_path == other.controlnet_path &&
+			embeddings_path == other.embeddings_path && 
+			stacked_id_embeddings_path == other.stacked_id_embeddings_path && 
+			input_id_images_path == other.input_id_images_path && 
+			wtype == other.wtype && 
+			lora_model_dir == other.lora_model_dir && 
+			input_path == other.input_path &&
+			mask_path == other.mask_path &&
+			control_image_path == other.control_image_path &&
+			vae_tiling == other.vae_tiling &&
+			n_threads == other.n_threads &&
+			rng_type == other.rng_type &&
+			schedule == other.schedule &&
+			clip_on_cpu == other.clip_on_cpu &&
+			control_net_cpu == other.control_net_cpu &&
+			vae_on_cpu == other.vae_on_cpu &&
+			diffusion_flash_attn == other.diffusion_flash_attn;
+	}
+
 	MSGPACK_DEFINE(
 		id,
 		n_threads,
@@ -164,8 +193,14 @@ struct Job {
 	);
 };
 
+MSGPACK_ADD_ENUM(sd_type_t);
+MSGPACK_ADD_ENUM(sample_method_t);
+MSGPACK_ADD_ENUM(schedule_t);
+MSGPACK_ADD_ENUM(rng_type_t);
+
 struct Image {
 	int jobid;
+	uint32_t width, height;
 	std::vector<uint8_t> data;
-	MSGPACK_DEFINE(jobid, data);
+	MSGPACK_DEFINE(jobid, width, height, data);
 };
