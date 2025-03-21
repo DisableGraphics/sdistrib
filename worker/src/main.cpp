@@ -16,7 +16,7 @@ sd_ctx_t* context_from_job(const Job& job) {
 		job.stacked_id_embeddings_path.c_str(), 
 		true, 
 		job.vae_tiling,  
-		false, 
+		true, 
 		job.n_threads, 
 		job.wtype, 
 		job.rng_type, 

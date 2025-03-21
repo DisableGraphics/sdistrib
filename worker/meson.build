@@ -9,6 +9,7 @@ cmake = import('cmake')
 
 opt_var = cmake.subproject_options()
 opt_var.add_cmake_defines({get_option('platform'): true})
+opt_var.add_cmake_defines({'SD_FAST_SOFTMAX': true})
 sub_proj = cmake.subproject('stable-diffusion.cpp', options: opt_var)
 
 sdcpp = sub_proj.dependency('stable-diffusion')
