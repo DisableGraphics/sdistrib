@@ -1,5 +1,6 @@
 #include "parse.hpp"
 #include <regex>
+#include <thread>
 #include "../../worker/subprojects/stable-diffusion.cpp/ggml/include/ggml.h"
 
 const char* rng_type_to_str[] = {
@@ -117,37 +118,6 @@ void parse_args(int argc, const char** argv, Job& params) {
                 break;
             }
             params.input_id_images_path = argv[i];
-        } else if (arg == "--type") {
-            if (++i >= argc) {
-                invalid_arg = true;
-                break;
-            }
-            std::string type        = argv[i];
-            bool found              = false;
-            std::string valid_types = "";
-            for (size_t i = 0; i < SD_TYPE_COUNT; i++) {
-                auto trait = ggml_get_type_traits((ggml_type)i);
-                std::string name(trait->type_name);
-                if (name == "f32" || (trait->to_float && trait->type_size)) {
-                    if (i)
-                        valid_types += ", ";
-                    valid_types += name;
-                    if (type == name) {
-                        if (ggml_quantize_requires_imatrix((ggml_type)i)) {
-                            printf("\033[35;1m[WARNING]\033[0m: type %s requires imatrix to work properly. A dummy imatrix will be used, expect poor quality.\n", trait->type_name);
-                        }
-                        params.wtype = (enum sd_type_t)i;
-                        found        = true;
-                        break;
-                    }
-                }
-            }
-            if (!found) {
-                fprintf(stderr, "error: invalid weight format %s, must be one of [%s]\n",
-                        type.c_str(),
-                        valid_types.c_str());
-                exit(1);
-            }
         } else if (arg == "--lora-model-dir") {
             if (++i >= argc) {
                 invalid_arg = true;
@@ -405,7 +375,7 @@ void parse_args(int argc, const char** argv, Job& params) {
         exit(1);
     }
     if (params.n_threads <= 0) {
-        params.n_threads = get_num_physical_cores();
+        params.n_threads = std::thread::hardware_concurrency();
     }
 
     if (params.model_path.length() == 0 && params.diffusion_model_path.length() == 0) {

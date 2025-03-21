@@ -8,11 +8,11 @@ sources = [
 cmake = import('cmake')
 
 opt_var = cmake.subproject_options()
-opt_var.add_cmake_defines({'GGML_CCACHE': false})
 opt_var.add_cmake_defines({get_option('platform'): true})
 sub_proj = cmake.subproject('stable-diffusion.cpp', options: opt_var)
+
 sdcpp = sub_proj.dependency('stable-diffusion')
-ggml = sub_proj.dependency('ggml')
+ggml = [sub_proj.dependency('ggml'), sub_proj.dependency('ggml-cpu'), sub_proj.dependency('ggml-cuda'), sub_proj.dependency('ggml-base'), sub_proj.dependency('zip')]
 
 zmqdep = dependency('cppzmq')
 msgpackdep = dependency('msgpack-cxx')
