@@ -1,5 +1,27 @@
 #include <common.hpp>
-#include <../subprojects/stable-diffusion.cpp/stable-diffusion.h>
+#include <stable-diffusion.h>
+#include <thirdparty/stb_image.h>
+#define STB_IMAGE_WRITE_IMPLEMENTATION 1
+#include <thirdparty/stb_image_write.h>
+#include <thirdparty/stb_image_resize.h>
+
+typedef struct {
+    int last_pos;
+    void *context;
+} custom_stbi_mem_context;
+
+// custom write function
+static void custom_stbi_write_mem(void *context, void *data, int size) {
+   custom_stbi_mem_context *c = (custom_stbi_mem_context*)context; 
+   //char *dst = (char *)c->context;
+   std::vector<char> *dst = (std::vector<char> *)c->context;
+   char *src = (char *)data;
+   int cur_pos = c->last_pos;
+   for (int i = 0; i < size; i++, cur_pos++) {
+       dst->emplace_back(src[i]);
+   }
+   c->last_pos = cur_pos;
+}
 
 sd_ctx_t* context_from_job(const Job& job) {
 	sd_ctx_t* newctx =
@@ -87,12 +109,32 @@ void worker_thread(int id, const std::string& model_path) {
         std::cout << "Worker " << id << ": " << request.id << std::endl;
 		sd_image_t* img = work(sdctx, request);
 		std::cout << "Worker " << id << " finished" << std::endl;
-		
-		std::vector<uint8_t> data(img->width * img->height * img->channel);
-		memcpy(data.data(), img->data, data.size());
-		free(img);
-		Image response{request.id, img->width, img->height, std::move(data)};
 
+		custom_stbi_mem_context context;
+		context.last_pos = 0;
+		std::vector<char> data;
+		context.context = (void*)&data;
+
+		if(request.output_path.ends_with("jpg") || request.output_path.ends_with("jpeg")) {
+			int result = stbi_write_jpg_to_func(custom_stbi_write_mem, 
+				&context, 
+				img->width, 
+				img->height, 
+				img->channel, 
+				img->data, 
+				100);
+		} else if(request.output_path.ends_with("png")) {
+			int result = stbi_write_png_to_func(custom_stbi_write_mem, 
+				&context, 
+				img->width, 
+				img->height, 
+				img->channel, 
+				img->data, 
+				img->width * img->channel);
+		}
+		
+		Image response{request.id, img->width, img->height, std::move(data)};
+		free(img);
         s_sendmore(worker, address);
         s_sendmore(worker, std::string(""));
         s_send_msgp(worker, response);

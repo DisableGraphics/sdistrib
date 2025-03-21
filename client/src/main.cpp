@@ -1,4 +1,5 @@
 #include <common.hpp>
+#include <fstream>
 #include "parse.hpp"
 
 void client_thread(int id, int argc, char** argv) {
@@ -12,6 +13,8 @@ void client_thread(int id, int argc, char** argv) {
 	s_send_msgp(client, job);
 	Image reply = s_recv_msgp<Image>(client);
 	std::cout << "Client " << id << ": " << reply.jobid << std::endl;
+	std::ofstream out_file{job.output_path, std::ios::binary};
+	out_file.write(reply.data.data(), reply.data.size());
 }
 
 int main(int argc, char** argv) {

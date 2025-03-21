@@ -1,7 +1,6 @@
 #include "parse.hpp"
 #include <regex>
 #include <thread>
-#include "../../worker/subprojects/stable-diffusion.cpp/ggml/include/ggml.h"
 
 const char* rng_type_to_str[] = {
     "std_default",

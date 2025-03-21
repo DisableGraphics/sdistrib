@@ -2,7 +2,7 @@
 #include "zhelpers.hpp"
 #include <string>
 #include <msgpack.hpp>
-#include "../worker/subprojects/stable-diffusion.cpp/stable-diffusion.h"
+#include "../worker/stable-diffusion.cpp/stable-diffusion.h"
 
 const std::string jobport = "4133";
 const std::string respport = "4134";
@@ -201,6 +201,6 @@ MSGPACK_ADD_ENUM(rng_type_t);
 struct Image {
 	int jobid;
 	uint32_t width, height;
-	std::vector<uint8_t> data;
+	std::vector<char> data;
 	MSGPACK_DEFINE(jobid, width, height, data);
 };

@@ -8,3 +8,4 @@ manager/subprojects/*/
 .cache
 client/subprojects/*/
 !worker/subprojects/stable-diffusion.cpp
+build
