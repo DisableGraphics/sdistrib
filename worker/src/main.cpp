@@ -1,4 +1,5 @@
 #include <common.hpp>
+#include <csetjmp>
 #include <stable-diffusion.h>
 #include <thirdparty/stb_image.h>
 #define STB_IMAGE_WRITE_IMPLEMENTATION 1
@@ -10,7 +11,7 @@ typedef struct {
     void *context;
 } custom_stbi_mem_context;
 
-// custom write function
+// custom write function for writing the raw image into an image with a format in memory
 static void custom_stbi_write_mem(void *context, void *data, int size) {
    custom_stbi_mem_context *c = (custom_stbi_mem_context*)context; 
    //char *dst = (char *)c->context;
@@ -22,7 +23,7 @@ static void custom_stbi_write_mem(void *context, void *data, int size) {
    }
    c->last_pos = cur_pos;
 }
-
+// Get a context from a job request received from the socket
 sd_ctx_t* context_from_job(const Job& job) {
 	sd_ctx_t* newctx =
 		new_sd_ctx(job.model_path.c_str(), 
@@ -38,7 +39,7 @@ sd_ctx_t* context_from_job(const Job& job) {
 		job.stacked_id_embeddings_path.c_str(), 
 		true, 
 		job.vae_tiling,  
-		true, 
+		false, 
 		job.n_threads, 
 		job.wtype, 
 		job.rng_type, 
@@ -49,8 +50,9 @@ sd_ctx_t* context_from_job(const Job& job) {
 		job.diffusion_flash_attn);
 	return newctx;
 }
-
+// Do the image generation work
 sd_image_t* work(sd_ctx_t* context, const Job& job) {
+	// Generate the image
 	return txt2img(context, 
 		job.prompt.c_str(), 
 		job.negative_prompt.c_str(), 
@@ -76,14 +78,25 @@ sd_image_t* work(sd_ctx_t* context, const Job& job) {
 		job.skip_layer_end);
 }
 
+// Segfault handler since stable-diffusion.cpp has this bad habit
+// of trying to allocate mem in the GPU, getting an out of memory error, 
+// ignoring that completely and horribly dying with a segfault.
+std::string address;
+IMG_ERROR err;
+sigjmp_buf jmpbuf;
+void sigsev_handler(int sig, siginfo_t *info, void *ucontext) {
+	std::cout << "Worker " << address << ": Out of memory" << std::endl;
+	siglongjmp(jmpbuf, 1);
+}
+
 //  Worker using REQ socket to do LRU routing
 //
-void worker_thread(int id, const std::string& model_path) {
+void worker_fn(int id, const std::string& addr, const std::string& model_path) {
     zmq::context_t context(1);
     zmq::socket_t worker(context, ZMQ_REQ);
-
+	// Set identity
     s_set_id(worker);
-    worker.connect("tcp://localhost:" + respport);
+    worker.connect(addr);
 
 	std::cout << "Worker " << id << " created" << std::endl;
 
@@ -91,30 +104,38 @@ void worker_thread(int id, const std::string& model_path) {
     s_send(worker, std::string("READY"));
 	srand(time(NULL));
 	sd_ctx_t* sdctx = nullptr;
-	Job prevjob;
     while (1) {
         //  Read and save all frames until we get an empty frame
-        //  In this example there is only 1 but it could be more
-        std::string address = s_recv(worker);
+        address = s_recv(worker);
 		receive_empty_message(worker);
-        //  Get request, send reply
+        // Get job request
         Job request = s_recv_msgp<Job>(worker);
-
-		if(!sdctx || !request.equals_for_ctx(prevjob)) {
-			if(sdctx) free_sd_ctx(sdctx);
-			sdctx = context_from_job(request);
-		}
-		prevjob = request;
+		// Create new context
+		// For some reason I can't reuse the context
+		// It segfaults
+		if(sdctx) free_sd_ctx(sdctx);
+		sdctx = context_from_job(request);
 		
         std::cout << "Worker " << id << ": " << request.id << std::endl;
+		// If the worker segfaults, we catch it and send an error message
+		if(sigsetjmp(jmpbuf, 1) == 1) {
+			Image response{request.id, OUT_OF_MEMORY};
+			s_sendmore(worker, address);
+			s_sendmore(worker, std::string(""));
+			s_send_msgp(worker, response);
+			continue;
+		}
+		// This is where it *may* segfault
+		// Usually with an OOM error
 		sd_image_t* img = work(sdctx, request);
 		std::cout << "Worker " << id << " finished" << std::endl;
 
+		// If the worker doesn't segfault, we send the image back
 		custom_stbi_mem_context context;
 		context.last_pos = 0;
 		std::vector<char> data;
 		context.context = (void*)&data;
-
+		// Convert to the format of choice
 		if(request.output_path.ends_with("jpg") || request.output_path.ends_with("jpeg")) {
 			int result = stbi_write_jpg_to_func(custom_stbi_write_mem, 
 				&context, 
@@ -132,8 +153,8 @@ void worker_thread(int id, const std::string& model_path) {
 				img->data, 
 				img->width * img->channel);
 		}
-		
-		Image response{request.id, img->width, img->height, std::move(data)};
+		// Send it back
+		Image response{request.id, OK, img->width, img->height, std::move(data)};
 		free(img);
         s_sendmore(worker, address);
         s_sendmore(worker, std::string(""));
@@ -142,7 +163,19 @@ void worker_thread(int id, const std::string& model_path) {
 }
 
 int main(int argc, char** argv) {
+	struct sigaction sa;
+	if(argc < 2) { 
+		std::cerr << "Usage: " << argv[0] << " <server address>" << std::endl;
+		return 1;
+	}
+	std::string address = "tcp://" + std::string(argv[1]) + ":" + respport;
+    sa.sa_flags = SA_SIGINFO;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_sigaction = sigsev_handler;
+    if (sigaction(SIGSEGV, &sa, NULL) == -1)
+		perror("sigaction");
+
 	srand(time(nullptr));
-	worker_thread(rand(), "");
+	worker_fn(rand(), address, "");
 	return 0;
 }

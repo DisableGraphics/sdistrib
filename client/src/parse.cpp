@@ -36,7 +36,7 @@ const char* schedule_str[] = {
 void parse_args(int argc, const char** argv, Job& params) {
     bool invalid_arg = false;
     std::string arg;
-    for (int i = 1; i < argc; i++) {
+    for (int i = 0; i < argc; i++) {
         arg = argv[i];
 
         if (arg == "-t" || arg == "--threads") {

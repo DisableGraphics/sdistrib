@@ -192,15 +192,31 @@ struct Job {
 		skip_layer_end
 	);
 };
+enum IMG_ERROR {
+	OK,
+	OUT_OF_MEMORY
+};
 
 MSGPACK_ADD_ENUM(sd_type_t);
 MSGPACK_ADD_ENUM(sample_method_t);
 MSGPACK_ADD_ENUM(schedule_t);
 MSGPACK_ADD_ENUM(rng_type_t);
+MSGPACK_ADD_ENUM(IMG_ERROR);
+
+inline std::string IMG_ERROR2str(IMG_ERROR err) {
+	switch(err) {
+		case OK:
+			return "OK";
+		case OUT_OF_MEMORY:
+			return "Out of memory";
+	}
+	return "UNKNOWN";
+}
 
 struct Image {
 	int jobid;
+	IMG_ERROR error = OK;
 	uint32_t width, height;
 	std::vector<char> data;
-	MSGPACK_DEFINE(jobid, width, height, data);
+	MSGPACK_DEFINE(jobid, error, width, height, data);
 };

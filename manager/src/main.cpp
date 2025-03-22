@@ -2,6 +2,8 @@
 //  Clients and workers are shown here in-process
 //
 
+// Example copied from the ZMQ guide
+// https://zguide.zeromq.org/docs/chapter3/
 #include <thread>
 #include <queue>
 #include <common.hpp>
@@ -68,7 +70,7 @@ int main(int argc, char *argv[])
             worker_queue.pop();
 
 			std::cout << client_addr << " -> " << worker_addr << std::endl;
-
+			// Send the job to the worker
             s_sendmore(backend, worker_addr);
             s_sendmore(backend, std::string(""));
             s_sendmore(backend, client_addr);

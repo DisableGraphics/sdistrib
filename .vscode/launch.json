@@ -5,12 +5,28 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"type": "lldb",
+			"name": "(gdb) Launch",
+			"type": "cppdbg",
 			"request": "launch",
-			"name": "Debug",
-			"program": "${workspaceFolder}/<executable file>",
+			"program": "${workspaceFolder}/worker/build/sdistrib-worker",
 			"args": [],
-			"cwd": "${workspaceFolder}"
+			"stopAtEntry": true,
+			"cwd": "${workspaceFolder}/worker/build",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
 		}
 	]
 }
