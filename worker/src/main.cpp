@@ -5,6 +5,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION 1
 #include <thirdparty/stb_image_write.h>
 #include <thirdparty/stb_image_resize.h>
+#include <filesystem>
 
 typedef struct {
     int last_pos;
@@ -89,6 +90,73 @@ void sigsev_handler(int sig, siginfo_t *info, void *ucontext) {
 	siglongjmp(jmpbuf, 1);
 }
 
+void postfix_models_path(Job& job, const std::string& model_path) {
+	if(!job.model_path.empty())
+		job.model_path = model_path + "/stable-diffusion/" + job.model_path;
+	if(!job.clip_l_path.empty())
+		job.clip_l_path = model_path + "/clip/" + job.clip_l_path;
+	if(!job.clip_g_path.empty())	
+		job.clip_g_path = model_path + "/clip/" + job.clip_g_path;
+	if(!job.t5xxl_path.empty())
+		job.t5xxl_path = model_path + "/t5/" + job.t5xxl_path;
+	if(!job.diffusion_model_path.empty())
+		job.diffusion_model_path = model_path + "/diffusion/" + job.diffusion_model_path;
+	if(!job.vae_path.empty())
+		job.vae_path = model_path + "/vae/" + job.vae_path;
+	if(!job.taesd_path.empty())
+		job.taesd_path = model_path + "/taesd/" + job.taesd_path;
+	if(!job.esrgan_path.empty())
+		job.esrgan_path = model_path + "/esrgan/" + job.esrgan_path;
+	if(!job.controlnet_path.empty())	
+		job.controlnet_path = model_path + "/controlnet/" + job.controlnet_path;
+	if(!job.embeddings_path.empty())
+		job.embeddings_path = model_path + "/embeddings/" + job.embeddings_path;
+	if(!job.stacked_id_embeddings_path.empty())
+		job.stacked_id_embeddings_path = model_path + "/embeddings/" + job.stacked_id_embeddings_path;
+	if(!job.input_id_images_path.empty())
+		job.input_id_images_path = model_path + "/input_id_images/" + job.input_id_images_path;
+}
+
+bool models_are_available(const Job& job) {
+	if(!job.model_path.empty())
+		if(!std::filesystem::exists(job.model_path))
+			return false;
+	if(!job.clip_l_path.empty())
+		if(!std::filesystem::exists(job.clip_l_path))
+			return false;
+	if(!job.clip_g_path.empty())
+		if(!std::filesystem::exists(job.clip_g_path))
+			return false;
+	if(!job.t5xxl_path.empty())
+		if(!std::filesystem::exists(job.t5xxl_path))
+			return false;
+	if(!job.diffusion_model_path.empty())
+		if(!std::filesystem::exists(job.diffusion_model_path))
+			return false;
+	if(!job.vae_path.empty())	
+		if(!std::filesystem::exists(job.vae_path))
+			return false;
+	if(!job.taesd_path.empty())
+		if(!std::filesystem::exists(job.taesd_path))
+			return false;
+	if(!job.esrgan_path.empty())
+		if(!std::filesystem::exists(job.esrgan_path))
+			return false;
+	if(!job.controlnet_path.empty())
+		if(!std::filesystem::exists(job.controlnet_path))
+			return false;
+	if(!job.embeddings_path.empty())
+		if(!std::filesystem::exists(job.embeddings_path))
+			return false;
+	if(!job.stacked_id_embeddings_path.empty())
+		if(!std::filesystem::exists(job.stacked_id_embeddings_path))
+			return false;
+	if(!job.input_id_images_path.empty())
+		if(!std::filesystem::exists(job.input_id_images_path))
+			return false;
+	return true;
+}
+
 //  Worker using REQ socket to do LRU routing
 //
 void worker_fn(int id, const std::string& addr, const std::string& model_path) {
@@ -110,9 +178,18 @@ void worker_fn(int id, const std::string& addr, const std::string& model_path) {
 		receive_empty_message(worker);
         // Get job request
         Job request = s_recv_msgp<Job>(worker);
-		// Create new context
-		// For some reason I can't reuse the context
-		// It segfaults
+		postfix_models_path(request, model_path);
+		if(!models_are_available(request)) {
+			std::cout << "Worker " << id << ": " << "Models are not available" << std::endl;
+			Image response{request.id, MODEL_DOES_NOT_EXIST};
+			s_sendmore(worker, address);
+			s_sendmore(worker, std::string(""));
+			s_send_msgp(worker, response);
+			continue;
+		}
+		// Create new context.
+		// For some reason I can't reuse the context.
+		// It segfaults if I do.
 		if(sdctx) free_sd_ctx(sdctx);
 		sdctx = context_from_job(request);
 		
@@ -164,8 +241,8 @@ void worker_fn(int id, const std::string& addr, const std::string& model_path) {
 
 int main(int argc, char** argv) {
 	struct sigaction sa;
-	if(argc < 2) { 
-		std::cerr << "Usage: " << argv[0] << " <server address>" << std::endl;
+	if(argc < 3) { 
+		std::cerr << "Usage: " << argv[0] << " <server address> <model_path>" << std::endl;
 		return 1;
 	}
 	std::string address = "tcp://" + std::string(argv[1]) + ":" + respport;
@@ -176,6 +253,6 @@ int main(int argc, char** argv) {
 		perror("sigaction");
 
 	srand(time(nullptr));
-	worker_fn(rand(), address, "");
+	worker_fn(rand(), address, argv[2]);
 	return 0;
 }

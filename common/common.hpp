@@ -4,9 +4,10 @@
 #include <msgpack.hpp>
 #include "../worker/stable-diffusion.cpp/stable-diffusion.h"
 
+// Port to send jobs from client to manager
 const std::string jobport = "4133";
+// Port to send results from worker to manager
 const std::string respport = "4134";
-#define CHUNK_SIZE 4096 // 4KB chunks
 
 //  Basic request-reply client using REQ socket
 //
@@ -194,7 +195,8 @@ struct Job {
 };
 enum IMG_ERROR {
 	OK,
-	OUT_OF_MEMORY
+	OUT_OF_MEMORY,
+	MODEL_DOES_NOT_EXIST
 };
 
 MSGPACK_ADD_ENUM(sd_type_t);
@@ -209,6 +211,8 @@ inline std::string IMG_ERROR2str(IMG_ERROR err) {
 			return "OK";
 		case OUT_OF_MEMORY:
 			return "Out of memory";
+		case MODEL_DOES_NOT_EXIST:
+			return "Model not found on worker. You may need to copy the model to the worker's model folder.";
 	}
 	return "UNKNOWN";
 }
